@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+      .text-box
+        .terms-box
+            h2.title Please Read and Agree Our Terms of Use
+            p.text I will not use this app for any form of medical diagnosis or advice.
+            form
+                table
+                    tbody
+                        tr
+                            td(style="width: 30px")
+                                input(id="termscheck" class='checkbox' type='checkbox' onclick='termsChecked()')
+                            td
+                                span.check-label I understand and agree to the terms of use
+
+            div(id='btn-center' class='btn-center' style="pointer-events: none")
+                a(href='/analyze')
+                    button(id='start-btn' class='start-btn' type='button') Proceed

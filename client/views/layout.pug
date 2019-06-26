@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+html
+	head
+		meta(name="viewport" content="width=device-width, initial-scale=1.0" charset='utf-8')
+		title Skin lesion ID app
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css')
+		script
+			- var nav_bar_items = {home: ['/', 'home', 'Home'],analyse: ['/terms', 'analyze', 'Analyze'],about: ['/about', 'about', 'About']}
+	body
+		.content
+			.container
+				.crop-container
+					img(src="https://www.hivplusmag.com/sites/hivplusmag.com/files/2018/07/19/melanoma-750x.jpg" width="100%" height="auto" alt="lesion under inspection")
+				.banner-text
+					.banner-title Skin Lesion<br />Identification
+					.banner-subtitle Powered by deep learning
+				ul.topnav
+					each item in nav_bar_items
+						li(class = 
+							item[1]===page && item[1]==='about' ? 'active right'
+							: 
+							item[1]===page && item[1]!=='about' ? 'active' 
+							: 
+							item[1]!==page && item[1]==='about' ? 'right' 
+							: 
+							null)
+							a(href=item[0]) #{item[2]}
+				block content
+
+		footer(class="footer")
+			p &copy;All rights reserved, 2019 &nbsp;&nbsp; | &nbsp;&nbsp;Not for medical use. 
+				
+	footer
+		script(src='/js/client.js')
